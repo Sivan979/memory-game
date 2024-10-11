@@ -12,45 +12,64 @@
         
         }
         .container{
-            margin-top: 170px;
+            margin-top: 140px;
             border: 2px solid rgb(0, 0, 0);
             padding: 0px 10px 20px 10px;
         }
+        h2{
+            margin-left: 95px;
+            padding-bottom: 5px;
+        }
         .card-container{
             display: grid;
-            grid-template-columns: 50px 50px 50px 50px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
             column-gap: 10px;
             row-gap: 10px;
         }
+        .card-container img{
+            height: 57px;
+            object-fit: cover;
+            object-position: center;
+        }
         .card-container div{
             background-color: rgb(99, 50, 148);
-            row-gap: 10px;
+            box-shadow: 0 0 5px black;
+            cursor: pointer;
         }
+        .card-container .cards:hover{
+            transform: scale(1.03);
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Memory Game</h2>
         <div class="card-container">
-            <div><img src="icons/gameplay-icon.svg" alt=""></div>
-            <div><img src="icons/halaween-icon.svg" alt=""></div>
-            <div><img src="icons/highfive-icon.svg" alt=""></div>
-            <div><img src="icons/joker-icon.svg" alt=""></div>
 
-            <div><img src="icons/puzzle-icon.svg" alt=""></div>
-            <div><img src="icons/sim-icon.svg" alt=""></div>
-            <div><img src="icons/smile-icon.svg" alt=""></div>
-            <div><img src="icons/usb-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/gameplay-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/halaween-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/highfive-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/joker-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/eye-icon.svg" alt=""></div>
 
-            <div><img src="icons/joker-icon.svg" alt=""></div>
-            <div><img src="icons/gameplay-icon.svg" alt=""></div>
-            <div><img src="icons/highfive-icon.svg" alt=""></div>
-            <div><img src="icons/halaween-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/puzzle-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/sim-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/smile-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/usb-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/flower-icon.svg" alt=""></div>
 
-            <div><img src="icons/smile-icon.svg" alt=""></div>
-            <div><img src="icons/puzzle-icon.svg" alt=""></div>
-            <div><img src="icons/usb-icon.svg" alt=""></div>
-            <div><img src="icons/sim-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/joker-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/gameplay-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/eye-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/halaween-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/highfive-icon.svg" alt=""></div>
+
+            <div class="cards"><img src="icons/smile-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/puzzle-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/flower-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/sim-icon.svg" alt=""></div>
+            <div class="cards"><img src="icons/usb-icon.svg" alt=""></div>
 
         </div>
     </div>
