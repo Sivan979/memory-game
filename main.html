@@ -7,21 +7,36 @@
     <style>
         body{
             background-image: linear-gradient(to right,rgb(207, 0, 0) , rgb(86, 0, 206));
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
         section{
             display: grid;
-            grid-template-columns: repeat(4, 6rem);
-            grid-template-rows: repeat(4, 6rem);
+            grid-template-columns: repeat(4, 5rem);
+            grid-template-rows: repeat(4, 5rem);
+            grid-gap: 20px;
+            perspective: 800px;
+        }
+        .card{
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.211);
         }
         .face, .back{
             width: 100%;
             height: 100%;
+            position: absolute;
         }
-  
+        .back{
+            background-color: rgb(99, 25, 99);
+            backface-visibility: hidden;
+        }
+        .toggleCard{
+            transform: rotateY(180deg);
+        }
 
     </style>
 </head>
@@ -86,6 +101,10 @@
                 section.appendChild(card);
                 card.appendChild(face);
                 card.appendChild(back);
+
+                card.addEventListener("click", () => {
+                    card.classList.toggle("toggleCard");
+                });
             });
         };
         cardGenerator();
