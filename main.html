@@ -6,92 +6,53 @@
     <title>Memory game</title>
     <style>
         body{
-            display: flex;
-            justify-content: center;
             background-image: linear-gradient(to right,rgb(207, 0, 0) , rgb(86, 0, 206));
         }
-        .container{
-            margin-top: 140px;
-            border: 2px solid rgb(0, 0, 0);
-            padding: 0px 10px 20px 10px;
-        }
-        h2{
-            margin-left: 88px;
-            padding-bottom: 5px;
-        }
-        .card-container{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            column-gap: 10px;
-            row-gap: 10px;
-        }
-        .card-container img{
-            height: 57px;
-            object-fit: cover;
-            object-position: center;
-        }
-        .card-container .cards{
-            background-color: rgb(99, 50, 148);
-            box-shadow: 0 0 5px black;
-            cursor: pointer;
-        }
-        .card-container .cards:hover{
-            transform: scale(1.03);
-        }
-        .front-cart{
-
-        }
-        .back-cart{
-            background-color: rgb(47, 0, 90);
-        }
+  
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Memory Game</h2>
-        <div class="card-container">
+    <h1>Lives:<span class="playerLivesCount"></span></h1>
+    <section></section>
 
-            <div class="cards">
-                <div class="front-card">
-                    <img src="icons/gameplay-icon.svg" alt="">
-                </div>
-                <div class="back-card" onclick="
-                    let backCard= document.querySelectorAll(back-card);
-                    
-                "></div>
-            </div>
-            <div class="cards"><img src="icons/halaween-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/highfive-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/joker-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/eye-icon.svg" alt=""></div>
-
-
-            <div class="cards"><img src="icons/puzzle-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/sim-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/smile-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/usb-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/flower-icon.svg" alt=""></div>
-
-
-            <div class="cards"><img src="icons/joker-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/gameplay-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/eye-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/halaween-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/highfive-icon.svg" alt=""></div>
-
-
-            <div class="cards"><img src="icons/smile-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/puzzle-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/flower-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/sim-icon.svg" alt=""></div>
-            <div class="cards"><img src="icons/usb-icon.svg" alt=""></div>
-
-        </div>
-    </div>
 
     <script>
-        
+        //grap stuff we need
+        const section = document.querySelector("section");
+        const playerLivesCount = document.querySelector(".playerLivesCount");
+        const playerLives = 7;
+
+        //link
+        playerLivesCount.textContent = playerLives;
+
+        //getting the images
+        const getData = () => [
+            { imgSrc: "./icons/eye-icon.svg", name: "eye"},
+            { imgSrc: "./icons/flower-icon.svg", name: "flower"},
+            { imgSrc: "./icons/gameplay-icon.svg", name: "gameplay"},
+            { imgSrc: "./icons/halaween-icon.svg", name: "halaween"},
+            { imgSrc: "./icons/highfive-icon.svg", name: "highfive"},
+            { imgSrc: "./icons/joker-icon.svg", name: "joker"},
+            { imgSrc: "./icons/puzzle-icon.svg", name: "puzzle"},
+            { imgSrc: "./icons/sim-icon.svg", name: "sim"},
+            { imgSrc: "./icons/smile-icon.svg", name: "smile"},
+            { imgSrc: "./icons/usb-icon.svg", name: "usb"},
+            { imgSrc: "./icons/eye-icon.svg", name: "eye"},
+            { imgSrc: "./icons/flower-icon.svg", name: "flower"},
+            { imgSrc: "./icons/gameplay-icon.svg", name: "gameplay"},
+            { imgSrc: "./icons/halaween-icon.svg", name: "halaween"},
+            { imgSrc: "./icons/highfive-icon.svg", name: "highfive"},
+            { imgSrc: "./icons/joker-icon.svg", name: "joker"},
+            { imgSrc: "./icons/puzzle-icon.svg", name: "puzzle"},
+            { imgSrc: "./icons/sim-icon.svg", name: "sim"},
+            { imgSrc: "./icons/smile-icon.svg", name: "smile"},
+            { imgSrc: "./icons/usb-icon.svg", name: "usb"}
+
+
+        ]
+
+
     </script>
     
 </body>
