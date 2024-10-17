@@ -7,6 +7,19 @@
     <style>
         body{
             background-image: linear-gradient(to right,rgb(207, 0, 0) , rgb(86, 0, 206));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section{
+            display: grid;
+            grid-template-columns: repeat(4, 6rem);
+            grid-template-rows: repeat(4, 6rem);
+        }
+        .face, .back{
+            width: 100%;
+            height: 100%;
         }
   
 
@@ -53,9 +66,34 @@
         const randomize = () => {
             const cardData = getData();
             cardData.sort(() => Math.random() - 0.5);
-            console.log(cardData);
+            return cardData;
         };
-        randomize();
+
+        //card generator function
+        const cardGenerator = () => {
+            const cardData = randomize();
+            //generate the html
+            cardData.forEach((item) => {
+                const card = document.createElement("div");
+                const face = document.createElement("img");
+                const back = document.createElement("div");
+                card.classList = "card";
+                face.classList = "face";
+                back.classList = "back";
+                //attach info to the card
+                face.src = item.imgSrc;
+                //attach the cards to the section
+                section.appendChild(card);
+                card.appendChild(face);
+                card.appendChild(back);
+            });
+        };
+        cardGenerator();
+
+
+
+
+
 
     </script>
     
