@@ -48,10 +48,14 @@
             { imgSrc: "./icons/sim-icon.svg", name: "sim"},
             { imgSrc: "./icons/smile-icon.svg", name: "smile"},
             { imgSrc: "./icons/usb-icon.svg", name: "usb"}
-
-
-        ]
-
+        ];
+        //randomize the array of objects
+        const randomize = () => {
+            const cardData = getData();
+            cardData.sort(() => Math.random() - 0.5);
+            console.log(cardData);
+        };
+        randomize();
 
     </script>
     
