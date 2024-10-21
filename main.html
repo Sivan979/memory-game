@@ -25,6 +25,9 @@
             transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.211);
         }
+        .card:hover{
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.726);
+        }
         .face, .back{
             width: 100%;
             height: 100%;
@@ -47,12 +50,10 @@
 
 
     <script>
-        //grap stuff we need
+    
         const section = document.querySelector("section");
         const playerLivesCount = document.querySelector(".playerLivesCount");
-        let playerLives = 10;
-
-        //link
+        let playerLives = 11;
         playerLivesCount.textContent = playerLives;
 
         //getting the images
@@ -101,7 +102,6 @@
                 face.src = item.imgSrc;
                 card.setAttribute("name", item.name)
 
-
                 //attach the cards to the section
                 section.appendChild(card);
                 card.appendChild(face);
@@ -125,7 +125,6 @@
             console.log(flippedCards);
 
             //logic
-
             if (flippedCards.length === 2){
                 if( flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
                     console.log("match");
@@ -160,7 +159,7 @@
             section.style.pointerEvents = "none";
             cardData.forEach((item, index) => {
                 cards[index].classList.remove('toggleCard');
-                //ranfomize
+                //randomize
                 setTimeout(() => {
                     cards[index].style.pointerEvents = "all";
                     faces[index].src = item.imgSrc;
@@ -168,17 +167,12 @@
                     section.style.pointerEvents = "all";
                 }, 1000);
             });
-            playerLives = 10;
+            playerLives = 11;
             playerLivesCount.textContent = playerLives;
             setTimeout(() => window.alert(text), 100);
         };
 
         cardGenerator();
-
-
-
-
-
 
     </script>
     
