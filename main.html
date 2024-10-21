@@ -15,7 +15,7 @@
         section{
             display: grid;
             grid-template-columns: repeat(4, 5rem);
-            grid-template-rows: repeat(4, 5rem);
+            grid-template-rows: repeat(5, 5rem);
             grid-gap: 20px;
             perspective: 800px;
         }
@@ -50,7 +50,7 @@
         //grap stuff we need
         const section = document.querySelector("section");
         const playerLivesCount = document.querySelector(".playerLivesCount");
-        const playerLives = 7;
+        let playerLives = 7;
 
         //link
         playerLivesCount.textContent = playerLives;
@@ -119,12 +119,46 @@
             console.log(e);
             const clickedCard = e.target;
             clickedCard.classList.add("flipped");
-            const flippedCards= document.querySelectorAll('.flipped');
+            const flippedCards = document.querySelectorAll('.flipped');
+
+            console.log(flippedCards);
+
             //logic
-            if(flippedCards.length === 2){
-                
+
+            if (flippedCards.length === 2){
+                if( flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+                    console.log("match");
+                    flippedCards.forEach((card) => {
+                        card.classList.remove("flipped");
+                        card.style.pointerEvents = "none";
+                    });
+                }else{
+                    console.log("wrong"); 
+                    flippedCards.forEach(card => {
+                        card.classList.remove('flipped');
+                        setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                    });
+                    playerLives--;
+                    playerLivesCount.textContent = playerLives;
+                    if(playerLives === 0){
+                        restart();
+                    }
+                }
             }
-        }
+        };
+
+        //restart
+        const restart = () => {
+            let cardData = randomize();
+            let faces = document.querySelectorAll(".face");
+            let cards = document.querySelectorAll('.card');
+            cardData.forEach((item, index) => {
+                cards[index].classList.remove('toggleCard');
+            });
+            playerLives = 7;
+            playerLivesCount.textContent = playerLives;
+        };
+
         cardGenerator();
 
 
