@@ -56,7 +56,7 @@
         let playerLives = 11;
         playerLivesCount.textContent = playerLives;
 
-        //getting the images
+        
         const getData = () => [
             { imgSrc: "./icons/eye-icon.svg", name: "eye"},
             { imgSrc: "./icons/flower-icon.svg", name: "flower"},
@@ -79,14 +79,14 @@
             { imgSrc: "./icons/smile-icon.svg", name: "smile"},
             { imgSrc: "./icons/usb-icon.svg", name: "usb"}
         ];
-        //randomize the array of objects
+        
         const randomize = () => {
             const cardData = getData();
             cardData.sort(() => Math.random() - 0.5);
             return cardData;
         };
 
-        //card generator function
+        
         const cardGenerator = () => {
             const cardData = randomize();
             //generate the html
@@ -102,7 +102,6 @@
                 face.src = item.imgSrc;
                 card.setAttribute("name", item.name)
 
-                //attach the cards to the section
                 section.appendChild(card);
                 card.appendChild(face);
                 card.appendChild(back);
@@ -124,7 +123,7 @@
 
             console.log(flippedCards);
 
-            //logic
+            
             if (flippedCards.length === 2){
                 if( flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
                     console.log("match");
@@ -145,13 +144,13 @@
                     }
                 }
             }
-            //text if won
+            
             if (toggleCard.length === 20){
                 restart("you won");
             }
         };
 
-        //restart
+        
         const restart = (text) => {
             let cardData = randomize();
             let faces = document.querySelectorAll(".face");
