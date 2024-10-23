@@ -24,6 +24,7 @@
             transform-style: preserve-3d;
             transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.211);
+            cursor:grab;
         }
         .card:hover{
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.726);
@@ -115,24 +116,20 @@
 
         //check cards
         const checkCards = (e) => {
-            console.log(e);
             const clickedCard = e.target;
             clickedCard.classList.add("flipped");
             const flippedCards = document.querySelectorAll('.flipped');
             const toggleCard = document.querySelectorAll(".toggleCard");
 
-            console.log(flippedCards);
 
             
             if (flippedCards.length === 2){
                 if( flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
-                    console.log("match");
                     flippedCards.forEach((card) => {
                         card.classList.remove("flipped");
                         card.style.pointerEvents = "none";
                     });
                 }else{
-                    console.log("wrong"); 
                     flippedCards.forEach(card => {
                         card.classList.remove('flipped');
                         setTimeout(() => card.classList.remove("toggleCard"), 1000);
@@ -152,23 +149,26 @@
 
         
         const restart = (text) => {
-            let cardData = randomize();
-            let faces = document.querySelectorAll(".face");
-            let cards = document.querySelectorAll('.card');
-            section.style.pointerEvents = "none";
-            cardData.forEach((item, index) => {
-                cards[index].classList.remove('toggleCard');
-                //randomize
-                setTimeout(() => {
-                    cards[index].style.pointerEvents = "all";
-                    faces[index].src = item.imgSrc;
-                    cards[index].setAttribute('name', item.name);
-                    section.style.pointerEvents = "all";
-                }, 1000);
-            });
-            playerLives = 11;
-            playerLivesCount.textContent = playerLives;
-            setTimeout(() => window.alert(text), 100);
+            setTimeout( () => {
+                let cardData = randomize();
+                let faces = document.querySelectorAll(".face");
+                let cards = document.querySelectorAll('.card');
+                section.style.pointerEvents = "none";
+                cardData.forEach((item, index) => {
+                    cards[index].classList.remove('toggleCard');
+                    //randomize
+                    setTimeout(() => {
+                        cards[index].style.pointerEvents = "all";
+                        faces[index].src = item.imgSrc;
+                        cards[index].setAttribute('name', item.name);
+                        section.style.pointerEvents = "all";
+                    }, 1000);
+                });
+                playerLives = 11;
+                playerLivesCount.textContent = playerLives;
+                setTimeout(() => window.alert(text), 100);
+            },1000);
+            
         };
 
         cardGenerator();
